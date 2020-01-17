@@ -10,12 +10,10 @@ import UIKit
 
 class InfoCellViewModel {
 
-    var productImage: String
     var title: String
     var price: String
     
     init(content: DetailData) {
-        self.productImage = content.fullSizeImage
         self.title = content.title
         self.price = content.price
     }

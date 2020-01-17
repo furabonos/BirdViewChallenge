@@ -9,10 +9,11 @@
 import Foundation
 
 struct Paging: Decodable {
+    var statusCode: Int
     var body: [ListData]
     
     enum CodingKeys: String, CodingKey {
-        case body
+        case body, statusCode
     }
 }
 

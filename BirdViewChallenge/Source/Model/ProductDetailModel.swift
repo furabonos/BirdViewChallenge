@@ -9,10 +9,11 @@
 import Foundation
 
 struct Details: Decodable {
+    var statusCode: Int
     var body: DetailData
     
     enum CodingKeys: String, CodingKey {
-        case body
+        case body, statusCode
     }
 }
 

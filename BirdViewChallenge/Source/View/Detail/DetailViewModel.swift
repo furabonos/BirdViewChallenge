@@ -27,7 +27,7 @@ class DetailViewModel {
     }
     
     func numberOfItemsInSection() -> Int {
-        return self.detailData.count + 1
+        return self.detailData.count + 2
     }
     
 }

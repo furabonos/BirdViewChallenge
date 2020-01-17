@@ -55,6 +55,10 @@ class ListViewModel {
         }
     }
     
+    func numberOfSections() -> Int {
+        return 1
+    }
+    
     func numberOfItemsInSection() -> Int {
         return self.listData.count
     }

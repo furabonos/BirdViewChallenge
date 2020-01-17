@@ -1,15 +1,14 @@
 //
-//  BirdViewChallengeTests.swift
-//  BirdViewChallengeTests
+//  BirdViewChallengeTest.swift
+//  BirdViewChallengeTest
 //
-//  Created by Euijae Hong on 06/01/2020.
+//  Created by Euijae Hong on 15/01/2020.
 //  Copyright © 2020 Taehyeong. All rights reserved.
 //
 
 import XCTest
-@testable import BirdViewChallenge
 
-class BirdViewChallengeTests: XCTestCase {
+class BirdViewChallengeTest: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -26,7 +25,7 @@ class BirdViewChallengeTests: XCTestCase {
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }

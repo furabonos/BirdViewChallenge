@@ -17,6 +17,15 @@ protocol BirdViewServiceType {
 
 struct BirdViewService: BirdViewServiceType {
     
+    static private let sharedManager: Alamofire.SessionManager = {
+      let configuration = URLSessionConfiguration.default
+      configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
+      configuration.timeoutIntervalForRequest = 30
+      configuration.timeoutIntervalForResource = 30
+      configuration.requestCachePolicy = NSURLRequest.CachePolicy.useProtocolCachePolicy
+      return Alamofire.SessionManager(configuration: configuration)
+    }()
+    
     func getBirdViewList(skinType: String, page: Int, completion: @escaping (Result<Paging>) -> ()) {
         
         var parameters = [String: Any]()
@@ -26,7 +35,7 @@ struct BirdViewService: BirdViewServiceType {
             parameters.updateValue(skinType, forKey: "skin_type")
         }
         
-        Alamofire
+        BirdViewService.sharedManager
             .request(API.List.page, method: .get, parameters: parameters)
             .validate()
             .responseData { (response) in
@@ -47,7 +56,7 @@ struct BirdViewService: BirdViewServiceType {
     
     func getDetailInfo(num: Int, completion: @escaping (Result<Details>) -> ()) {
         
-        Alamofire
+        BirdViewService.sharedManager
             .request("\(API.List.page)/\(num)", method: .get)
             .validate()
             .responseData { (response) in
@@ -72,7 +81,7 @@ struct BirdViewService: BirdViewServiceType {
         var parameters = [String: String]()
         parameters.updateValue(search, forKey: "search")
         
-        Alamofire
+        BirdViewService.sharedManager
             .request(API.List.page, method: .get, parameters: parameters)
             .validate()
             .responseData { (response) in
