@@ -72,12 +72,8 @@ class DetailViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("여깁니다요 = \(self.ids)")
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        viewAnimation()
-//    }
     
     override func setupUI() {
         [tableView, detailIndicator, closeBtn, buyBtn].forEach { view.addSubview($0) }
@@ -165,6 +161,10 @@ extension DetailViewController: UITableViewDelegate {
         default:
             return UITableView.automaticDimension
         }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfSections()
     }
 }
 extension DetailViewController: UITableViewDataSource {

@@ -18,12 +18,15 @@ class DetailViewModel {
             switch result {
             case .success(let value):
                 self.detailData = [value.body]
-                print("Fdfds = \(self.detailData[0])")
                 completion(true)
             case .failure(let error):
                 completion(false)
             }
         }
+    }
+    
+    func numberOfSections() -> Int {
+        return 1
     }
     
     func numberOfItemsInSection() -> Int {
